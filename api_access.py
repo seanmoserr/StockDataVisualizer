@@ -18,6 +18,7 @@ def check_stock(ticker):
         return ticker
 
 
+# Retrieve specified stock data from API
 def get_data_from_api(time_series, ticker):
 
     #time_series must be one of these four:
@@ -26,12 +27,13 @@ def get_data_from_api(time_series, ticker):
     # - TIME_SERIES_WEEKLY
     # - TIME_SERIES_MONTHLY  
 
+    # Adding an actual time interval for the stock data is in progress. Still figuring out how to do that
+
     url = 'https://www.alphavantage.co/query?function=' + time_series + '&symbol=' + ticker + '&interval=5min&apikey=JLFXYX4J4I20CF8E'
 
     r = requests.get(url)
     data = r.json()
 
-    print(data)
+    return data
 
-
-# get_data_from_api('TIME_SERIES_INTRADAY', 'IB')
+get_data_from_api('TIME_SERIES_MONTHLY', 'IBM')
